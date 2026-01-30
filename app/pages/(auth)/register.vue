@@ -12,7 +12,7 @@
           }}
         </v-card-title>
 
-        <div v-if="registrationSuccess">
+        <div v-show="registrationSuccess">
           <EmailSentState
             :email="email"
             :loading="resendLoading"
@@ -28,77 +28,79 @@
           </EmailSentState>
         </div>
 
-        <template v-else>
-          <v-form class="d-flex flex-column ga-4" @submit.prevent="handleSignUp">
-            <AppAlert
-              v-if="isAnonymous"
-              type="info"
-              message="You're currently in Guest Mode. Sign up to secure your progress!"
-              :closable="false"
-            />
+        <div v-show="!registrationSuccess">
+          <div class="d-flex flex-column ga-4">
+            <v-form class="d-flex flex-column ga-4" @submit.prevent="handleSignUp">
+              <AppAlert
+                v-if="isAnonymous"
+                type="info"
+                message="You're currently in Guest Mode. Sign up to secure your progress!"
+                :closable="false"
+              />
 
-            <AppAlert
-              v-if="feedback.message"
-              v-model:message="feedback.message"
-              :type="feedback.type"
-            />
+              <AppAlert
+                v-if="feedback.message"
+                v-model:message="feedback.message"
+                :type="feedback.type"
+              />
 
-            <v-text-field
-              v-model="username"
-              prepend-inner-icon="mdi-account"
-              label="Username"
-              type="text"
-              :hide-details="false"
-              persistent-hint
-              hint="Allowed: [a-z], [0-9], underscore (_), and hyphen (-). Max length of 32."
-            />
+              <v-text-field
+                v-model="username"
+                prepend-inner-icon="mdi-account"
+                label="Username"
+                type="text"
+                :hide-details="false"
+                persistent-hint
+                hint="Allowed: [a-z], [0-9], underscore (_), and hyphen (-). Max length of 32."
+              />
 
-            <v-text-field
-              v-model="email"
-              prepend-inner-icon="mdi-email"
-              label="Email address"
-              type="email"
-            />
+              <v-text-field
+                v-model="email"
+                prepend-inner-icon="mdi-email"
+                label="Email address"
+                type="email"
+              />
 
-            <v-text-field
-              v-model="password"
-              prepend-inner-icon="mdi-lock"
-              label="Password"
-              type="password"
-            />
+              <v-text-field
+                v-model="password"
+                prepend-inner-icon="mdi-lock"
+                label="Password"
+                type="password"
+              />
 
-            <NuxtTurnstile v-model="token" class="mt-2 mx-auto" />
+              <NuxtTurnstile v-model="token" class="mt-2 mx-auto" />
 
-            <v-btn type="submit" color="primary" block :loading="loading"> Sign up </v-btn>
-          </v-form>
+              <v-btn type="submit" color="primary" block :loading="loading"> Sign up </v-btn>
+            </v-form>
 
-          <div v-if="!isAnonymous" class="d-flex align-center">
-            <v-divider />
-            <span class="mx-4">Or</span>
-            <v-divider />
+            <div v-if="!isAnonymous" class="d-flex align-center">
+              <v-divider />
+              <span class="mx-4">Or</span>
+              <v-divider />
+            </div>
+
+            <v-btn
+              v-if="!isAnonymous"
+              @click="handleAnonymousSignIn"
+              variant="tonal"
+              block
+              :loading="anonymousLoading"
+            >
+              <span class="text-truncate-wrap">Continue as Guest</span>
+            </v-btn>
+
+            <div class="text-center text-body-2 text-medium-emphasis">
+              <p>
+                Already have an account?
+                <NuxtLink
+                  :to="{ path: '/login', query: route.query }"
+                  class="text-decoration-none text-primary"
+                  >Log in</NuxtLink
+                >
+              </p>
+            </div>
           </div>
-
-          <v-btn
-            v-if="!isAnonymous"
-            @click="handleAnonymousSignIn"
-            variant="tonal"
-            block
-            :loading="anonymousLoading"
-          >
-            <span class="text-truncate-wrap">Continue as Guest</span>
-          </v-btn>
-
-          <div class="text-center text-body-2 text-medium-emphasis">
-            <p>
-              Already have an account?
-              <NuxtLink
-                :to="{ path: '/login', query: route.query }"
-                class="text-decoration-none text-primary"
-                >Log in</NuxtLink
-              >
-            </p>
-          </div>
-        </template>
+        </div>
       </div>
     </v-card>
   </div>

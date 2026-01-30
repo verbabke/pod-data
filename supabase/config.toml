@@ -209,7 +209,7 @@ subject = "Your One-time Sign-in Link"
 content_path = "./supabase/templates/magic_link.html"
 
 [auth.email.template.email_change]
-subject = "Confirm Email Change"
+subject = "Confirm Email"
 content_path = "./supabase/templates/confirm_email_change.html"
 
 [auth.email.template.recovery]
