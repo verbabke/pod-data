@@ -41,7 +41,7 @@
         <div v-if="mdAndUp" class="d-flex align-center flex-column pa-4 ga-4">
           <v-btn
             icon="mdi-github"
-            href="https://github.com/bjornverbakel/pod-data"
+            href="https://github.com/verbabke/pod-data"
             target="_blank"
             variant="plain"
           >

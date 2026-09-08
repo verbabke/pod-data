@@ -51,7 +51,7 @@
       </NuxtLink>
 
       <NuxtLink
-        to="https://github.com/bjornverbakel/pod-data"
+        to="https://github.com/verbabke/pod-data"
         target="_blank"
         rel="noopener noreferrer"
         class="text-decoration-none"
