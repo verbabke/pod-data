@@ -60,7 +60,7 @@ npx supabase db reset
 npx supabase migration up
 ```
 
-Applies the database migrations.
+Applies the database migrations to the local database.
 
 ---
 
@@ -95,5 +95,8 @@ npx supabase db diff -f name_of_change
 Push the new migrations to the remote Supabase project:
 
 ```bash
-npx supabase db push
+npx supabase db push --remote
 ```
+
+The CLI asks for confirmation before changing the hosted database. CLI v3 uses
+pg-delta by default for schema diffs; review generated migrations before applying them.
