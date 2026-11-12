@@ -37,7 +37,7 @@
               <div class="status-indicator" :class="`bg-${statusColor}`" />
             </div>
             <div>
-              <v-card-title class="pa-0 text-body-1">bjqrnvv</v-card-title>
+              <v-card-title class="pa-0 text-body-1">verbabke</v-card-title>
               <v-card-subtitle class="pa-0 text-caption">Discord</v-card-subtitle>
             </div>
           </div>

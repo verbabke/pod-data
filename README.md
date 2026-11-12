@@ -26,7 +26,7 @@ This is a completion checklist app for **NieR: Automata**, available at [poddata
    ```env
    SUPABASE_PROJECT_ID="your_supabase_project_id"
    SUPABASE_URL="https://your-project-id.supabase.co"
-   SUPABASE_KEY="your_supabase_key"
+   SUPABASE_PUBLISHABLE_KEY="your_supabase_publishable_key"
 
    TURNSTILE_SITEKEY="your_turnstile_site_key"
    TURNSTILE_SECRET_KEY="your_turnstile_secret_key"

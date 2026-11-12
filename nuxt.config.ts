@@ -62,6 +62,7 @@ export default defineNuxtConfig({
 
   // Module config
   supabase: {
+    key: process.env.SUPABASE_PUBLISHABLE_KEY,
     redirectOptions: {
       login: '/login',
       callback: '/confirm',
