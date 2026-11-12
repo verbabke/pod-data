@@ -174,7 +174,7 @@
 </template>
 
 <script setup lang="ts">
-const { mdAndUp } = useDisplay()
+const { mdAndUp } = useVDisplay()
 const user = useSupabaseUser()
 const { profile } = useProfile()
 const { isAnonymous } = useAuth()

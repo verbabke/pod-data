@@ -25,6 +25,7 @@ const props = withDefaults(
       justifyContent: 'space-between',
       alignItems: 'flex-start',
       padding: '48px',
+      boxSizing: 'border-box',
       backgroundColor: props.bgColor,
       color: props.textColor,
       fontFamily: 'Inter, sans-serif',

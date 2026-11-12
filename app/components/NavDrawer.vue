@@ -69,7 +69,7 @@
 </template>
 
 <script setup lang="ts">
-const { lgAndUp, mdAndUp } = useDisplay()
+const { lgAndUp, mdAndUp } = useVDisplay()
 
 const drawerToggle = inject<Ref<boolean>>('drawer')!
 

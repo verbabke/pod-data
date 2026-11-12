@@ -24,6 +24,8 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@nuxtjs/turnstile',
     'vuetify-nuxt-module',
+    '@vercel/analytics/nuxt',
+    '@vercel/speed-insights/nuxt',
   ],
 
   // Styling
@@ -47,6 +49,8 @@ export default defineNuxtConfig({
   ogImage: {
     enabled: enableBuildTimeArtifacts,
   },
+  aiReady: false,
+  skewProtection: false,
 
   // Runtime config (env)
   runtimeConfig: {
@@ -72,14 +76,14 @@ export default defineNuxtConfig({
   },
   vuetify: {
     moduleOptions: {
-      /* module specific options */
+      prefixComposables: true,
     },
     vuetifyOptions: vuetifyConfig,
   },
 
   // Site metadata
   site: {
-    url: 'https://poddata.net',
+    url: 'https://www.poddata.net',
     name: 'Pod Data',
   },
 
@@ -87,7 +91,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: 'utf-16',
-      viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+      viewport: 'width=device-width, initial-scale=1',
       htmlAttrs: {
         lang: 'en',
       },
@@ -114,6 +118,7 @@ export default defineNuxtConfig({
   // Routing & caching
   routeRules: {
     '/': { swr: true },
+    '/confirm': { robots: false },
     ...(enableBuildTimeArtifacts
       ? {
           '/about': { prerender: true },

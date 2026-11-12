@@ -10,6 +10,14 @@ pnpm dev
 
 Runs the Nuxt application at [http://localhost:3000](http://localhost:3000).
 
+### OG Image Signing
+
+Dynamic OG images require a stable `NUXT_APP_SECRET` of at least 32 characters
+in production. Generate one with `pnpm exec nuxt-og-image generate-secret` and
+store it as a Secret in the applicable Vercel environment, then redeploy. Keep it
+private and stable across deployments; changing it invalidates existing signed
+image URLs. Local development generates its own secret automatically.
+
 ---
 
 ## Supabase (Local)
